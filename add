@@ -1,0 +1,18 @@
+#! /bin/bash
+
+
+echo -ne "1. Saving \n2. Current \n\nEnter Your Choice : "
+read c
+
+case $c in
+1) 
+./addsav
+;;
+
+2) 
+./addcurr
+;;
+
+*)
+echo "Sorry,Wrong Input";;
+esac

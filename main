@@ -1,0 +1,40 @@
+#!/bin/bash
+
+mkdir forms accounts 
+chmod +777 forms accounts
+i=1
+while [ $i -eq 1 ]
+do
+clear
+echo -ne "\n\tMain Menu\n\n1. Admin \n2. Customer \n\nEnter Your Choice : "
+read v 
+
+case $v in
+
+1)
+clear
+echo -ne "\n\nEnter Admin Password : "
+read -s pass
+if [ $pass == "admin" ]
+then
+./admin
+else
+echo -e "\n\nWrong Password \n\n"
+echo -n "Press any Key for Exit"
+read gap
+fi ;;
+
+2)
+./customer ;;
+
+*)
+i=2
+echo -e "\nThankyou Visit Again\n\n"
+echo -ne "Press any Key for Exit"
+read gap
+ ;; 
+
+esac
+
+done
+

@@ -1,0 +1,33 @@
+#! /bin/bash 
+
+clear
+
+echo -en "1. Saving Account \n2. Current Account \nEnter Your Choice : "
+read ch
+
+case $ch in
+
+1)
+cd ./accounts/saving
+
+clear
+
+echo -en "Enter your Saving Account No : "
+read acc
+find . -iname $g | awk 
+;; 
+
+2)
+cd ./accounts/current
+
+clear
+
+echo -en "Enter your Current Account No : "
+read acc
+
+
+;;
+
+*)
+echo -en "\n\nOops Wrong Choice \n\nTry Again "
+

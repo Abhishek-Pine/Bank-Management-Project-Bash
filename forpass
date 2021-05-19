@@ -14,18 +14,30 @@ clear
 
 echo -en "Enter your Saving Account No : "
 read acc
-find . -iname $g | awk 
+if [ -f "$acc" ];
+then
+echo "here1"
+
+echo -en "You have requested for password\nYour Password : $(head -n 3 $acc | tail -n +3 )" | mail -s "Password Requested" $(head -n 8 $acc | tail -n +8 )
+else
+echo "Account Not Found"
+fi 
 ;; 
 
 2)
 cd ./accounts/current
-
 clear
 
 echo -en "Enter your Current Account No : "
 read acc
+if [ -f "$acc" ];
+then
+echo "here1"
 
-
+echo -en "You have requested for password\nYour Password : $(head -n 3 $acc | tail -n +3 )" | mail -s "Password Requested" $(head -n 8 $acc | tail -n +8 )
+else
+echo "Account Not Found"
+fi 
 ;;
 
 *)

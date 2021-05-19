@@ -1,12 +1,4 @@
 #! /bin/bash
 
-read g
-if [ -f "$g" ];
-then
-echo "here1"
 
-echo -en "You have requested for password\nYour Password : $(head -n 3 $g | tail -n +3 )" | mail -s "Password Requested" $(head -n 8 $g | tail -n +8 )
-else
-echo "Account Not Found"
-fi
 

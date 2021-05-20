@@ -12,13 +12,13 @@ case $choice in
 ./add;;
 
 2)
-./edit ;;
+./adedit ;;
 
 3)
-./view ;;
+./adview ;;
 
 4)
-./list ;;
+./adlist ;;
 
 5) 
 ./delete ;;

@@ -5,10 +5,8 @@ bcode=9124
 
 count=$(tail -1 './accounts/current/currno')
 
-
 type='Current'
 echo -e "\n\tEnter Details"
-
 
 echo -en "\nEnter Name : "
 read name
@@ -43,12 +41,12 @@ touch $accno
 echo -en "$accno\n$type\n$pas\n$name\n$ad\n$dob\n$adh\n$email\n$ph\n$bal" > $accno
 
 count=$((count+1))
-echo "$count"
+echo "\n Account No : $account "
 
 echo "$count" > currno
 echo -e "$accno\t$name\t$dob\t$ph" >> curracc
 
-echo -e "Congratulations $name your Account has been open Sucessfully \n\nAccouunt No : $accno\nDOB : $dob\nEmail : $email\nPhone No : $ph\nBalance : $bal \nDefault Password : $pas\n" | mail -s "Bank Account Opened Sucessfully" $email
+echo -e "Congratulations $name your Account has been open Sucessfully \n\nAccouunt No : $accno\nDOB : $dob\nEmail : $email\nPhone No : $ph\nBalance : $bal \nDefault Password : $pas\n" | mail -s "Account Opened Sucessfully" $email
 
 
 

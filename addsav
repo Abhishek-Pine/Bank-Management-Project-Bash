@@ -4,7 +4,7 @@ clear
 bcode=9123
 
 count=$(tail -1 './accounts/saving/savno')
-echo "$count"
+
 type='Saving'
 echo -e "\n\tEnter Details"
 
@@ -42,7 +42,7 @@ touch $accno
 echo -en "$accno\n$type\n$pas\n$name\n$ad\n$dob\n$adh\n$email\n$ph\n$bal" > $accno
 
 count=$((count+1))
-echo "$count"
+echo "\n Account No : $account "
 
 echo "$count" > savno
 echo -e "$accno\t$name\t$dob\t$ph" >> savacc

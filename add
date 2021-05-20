@@ -1,7 +1,7 @@
 #! /bin/bash
 
-
-echo -ne "1. Saving \n2. Current \n\nEnter Your Choice : "
+clear
+echo -ne "\n1. Saving Account \n2. Current Account\n\nEnter Your Choice : "
 read c
 
 case $c in

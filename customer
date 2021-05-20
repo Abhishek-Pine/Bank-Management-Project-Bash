@@ -5,7 +5,7 @@ while [ $j -eq 1 ]
 do
 clear
 echo -e "\n\tWelcome to Customer Menu\n"
-echo -e "\n1. Login Account \n2. Forget Password \n"
+echo -e "\n1. Login Account \n2. Forget Password \n3. Account Opening Form \n4.Exit \n"
 echo -n "Enter Your Choice : "
 read choice 
 
@@ -18,6 +18,9 @@ case $choice in
 ./forgetpass ;;
 
 3)
+;;
+
+4)
 j=2;;
 
 *)

@@ -1,0 +1,47 @@
+#! /bin/bash 
+
+clear
+
+echo -en "\n\tForget Password\n\n1. Saving Account \n2. Current Account \n\nEnter Your Choice : "
+read ch
+
+case $ch in
+
+1)
+cd ./accounts/saving
+
+clear
+
+echo -en "\nEnter your Saving Account No : "
+read acc
+if [ -f "$acc" ];
+then
+echo -en "You have requested for password\nYour Password : $(head -n 3 $acc | tail -n +3 )" | mail -s "Password Requested" $(head -n 8 $acc | tail -n +8 ) | echo -e "\nEmail has been send to your registered email ID\nThank-you"
+read gap 
+else
+echo -e "\nOops!! Account Not Found"
+read gap
+fi 
+;; 
+
+2)
+cd ./accounts/current
+clear
+
+echo -en "\nEnter your Current Account No : "
+read acc
+if [ -f "$acc" ];
+then
+
+echo -en "You have requested for password\nYour Password : $(head -n 3 $acc | tail -n +3 )" | mail -s "Password Requested" $(head -n 8 $acc | tail -n +8 ) | echo -e "\nEmail has been send to your registered email ID\nThank-you" 
+read gap
+else
+echo -e "\nOops!! Account Not Found"
+read gap
+fi 
+;;
+
+*)
+echo -en "\n\nOops!! Wrong Choice \n\nTry Again "
+read gap
+esac

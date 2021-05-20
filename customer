@@ -1,1 +1,23 @@
 #! /bin/bash
+
+clear
+echo -e "\n\tWelcome to Customer Menu\n"
+echo -e "\n1. Login Account \n2. Forget Password \n"
+echo -n "Enter Your Choice : "
+read choice 
+
+case $choice in
+
+1)
+./log ;; 
+
+2)
+./forgetpass ;;
+
+*)
+echo -e "\nOps!!!!  Wrong Choice \n\n"
+echo "Press any Key for Exit"
+read gap
+ ;; 
+
+esac

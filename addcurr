@@ -8,8 +8,11 @@ count=$(tail -1 './accounts/current/currno')
 type='Current'
 echo -e "\n\tEnter Details"
 
-echo -en "\nEnter Name : "
-read name
+echo -en "\nEnter First Name : "
+read fname
+
+echo -en "\nEnter Last Name : "
+read lname
 
 echo -en "\nEnter Address : "
 read ad
@@ -38,15 +41,15 @@ cd ./accounts/current
 
 touch $accno
 
-echo -en "$accno\n$type\n$pas\n$name\n$ad\n$dob\n$adh\n$email\n$ph\n$bal" > $accno
+echo -en "$accno\n$type\n$pas\n$fname $lname\n$ad\n$dob\n$adh\n$email\n$ph\n$bal" > $accno
 
 count=$((count+1))
-echo "\n Account No : $account "
+echo -e "\n Account No : $accno "
 
 echo "$count" > currno
-echo -e "$accno\t$name\t$dob\t$ph\t$email" >> curracc
+echo -e "$accno\t$fname $lname\t$dob\t$ph\t$email" >> curracc
 
-echo -e "Congratulations $name your Account has been open Sucessfully \n\nAccouunt No : $accno\nDOB : $dob\nEmail : $email\nPhone No : $ph\nBalance : $bal \nDefault Password : $pas\n" | mail -s "Account Opened Sucessfully" $email
+echo -e "Congratulations $fname $lname your Account has been open Sucessfully \n\nAccouunt No : $accno\nDOB : $dob\nEmail : $email\nPhone No : $ph\nBalance : $bal \nDefault Password : $pas\n" | mail -s "Account Opened Sucessfully" $email
 
 
 

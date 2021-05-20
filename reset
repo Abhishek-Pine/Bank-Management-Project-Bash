@@ -1,0 +1,19 @@
+#! /bin/bash
+
+rm -r accounts
+mkdir accounts
+cd ./accounts
+mkdir saving current
+
+cd ./saving
+touch savacc savno
+chmod +770 savacc savno
+echo -n "2" > savno
+cd ..
+
+cd ./current
+
+touch curracc currno
+chmod +770 curracc currno
+echo -n "2" > currno
+

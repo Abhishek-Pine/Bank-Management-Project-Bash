@@ -1,11 +1,14 @@
 #! /bin/bash
 
+j=1
+while [ $j -eq 1 ]
+do
 clear
+
 echo -e "\n\tWelcome to Admin Menu\n"
-echo -e "\n1. Add Accounts \n2. Edit Accounts \n3. Veiw Account \n4. View All Accounts \n5. Delete Account \n"
+echo -e "\n1. Add Accounts \n2. Edit Accounts \n3. Veiw Account \n4. View All Accounts \n5. Delete Account \n6. Exit\n"
 echo -n "Enter Your Choice : "
 read choice 
-
 case $choice in
 
 1)
@@ -23,10 +26,14 @@ case $choice in
 5) 
 ./delete ;;
 
+6)
+j=2;;
+
 *)
-echo -e "\nLogin Again \n\n"
-echo "Press any Key for Exit"
+echo -en "\nInvalid Input\t"
 read gap
  ;; 
 
 esac
+
+done

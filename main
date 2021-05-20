@@ -1,7 +1,5 @@
 #!/bin/bash
 
-mkdir forms accounts 
-chmod +777 forms accounts
 i=1
 while [ $i -eq 1 ]
 do

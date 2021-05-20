@@ -45,7 +45,7 @@ count=$((count+1))
 echo "\n Account No : $account "
 
 echo "$count" > savno
-echo -e "$accno\t$name\t$dob\t$ph" >> savacc
+echo -e "$accno\t$name\t$dob\t$ph\t$email" >> savacc
 
 echo -e "Congratulations $name your Account has been open Sucessfully \n\nAccouunt No : $accno\nDOB : $dob\nEmail : $email\nPhone No : $ph\nBalance : $bal \nDefault Password : $pas\n" | mail -s "Account Opened Sucessfully" $email
 

@@ -1,0 +1,102 @@
+#! /bin/bash
+
+clear
+echo -en "\n\n\tEdit Details\n\nEnter Your Account No : "
+read acc
+cd ./accounts
+if [ -f "$acc" ];
+then
+echo -en "\n1. Password \n2. Name \n3. Address \n4. DOB \n5. Aadhar \n6. Email \n7. Phone No \n8. Exit \n Enter Your Choice "  
+read cq
+case $cq in
+
+1)
+r=3
+let "r--"
+echo "$(head -$r $acc)" >> temp
+let "r=r+2"
+echo "\nEnter Password : " 
+read pas
+echo "$pas" >> temp
+echo "$(tail +$r $acc)" >> temp
+;;
+
+2)
+r=4
+let "r--"
+echo "$(head -$r $acc)" >> temp
+let "r=r+2"
+echo "\nEnter Name : " 
+read name
+echo "$name" >> temp
+echo "$(tail +$r $acc)" >> temp
+;;
+3)
+r=5
+let "r--"
+echo "$(head -$r $acc)" >> temp
+let "r=r+2"
+echo "\nEnter Address : " 
+read ad
+echo "$ad" >> temp
+echo "$(tail +$r $acc)" >> temp
+;;
+4)
+r=6
+let "r--"
+echo "$(head -$r $acc)" >> temp
+let "r=r+2"
+echo "\nEnter DOB : " 
+read dob
+echo "$dob" >> temp
+echo "$(tail +$r $acc)" >> temp
+;;
+5)
+r=7
+let "r--"
+echo "$(head -$r $acc)" >> temp
+let "r=r+2"
+echo "\nEnter Aadhar : " 
+read adh
+echo "$adh" >> temp
+echo "$(tail +$r $acc)" >> temp
+;;
+6)
+r=8
+let "r--"
+echo "$(head -$r $acc)" >> temp
+let "r=r+2"
+echo "\nEnter Email : " 
+read email
+echo "$email" >> temp
+echo "$(tail +$r $acc)" >> temp
+;;
+
+7)
+r=9
+let "r--"
+echo "$(head -$r $acc)" >> temp
+let "r=r+2"
+echo "\nEnter Phone No : " 
+read ph
+echo "$ph" >> temp
+echo "$(tail +$r $acc)" >> temp
+;;
+
+8)
+;;
+
+*)
+echo -en "\n\nInvalid Input";;
+esac
+
+if [ -f "temp" ];
+then
+rm -r $acc
+mv temp $acc
+fi
+
+else
+echo -e "\nOops!! Account Not Found"
+read gap
+fi 

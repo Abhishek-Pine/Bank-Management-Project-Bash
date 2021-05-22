@@ -1,18 +1,14 @@
 #!/bin/bash
-
+e=1
 clear
-echo -en "\n\t Customer Menu\n\n1. View Details\n2. Debit \n3. Credit \n4. Edit Phone No \n5. Edit E-mail \n6. Change Password \n7.Logout \n\nEnter Your Choice : "
+while [ $e -eq 1 ]
+do
+echo -en "\n\t Customer Menu\n\n1. View Details\n2. Debit \n3. Credit \n4. Edit Phone No \n5. Edit E-mail \n6. Change Password \n7. Logout \n\nEnter Your Choice : "
 read s
-pwd
-read hehe
 
 case $s in
 1)
-pwd
-read f
-./custview 
-pwd 
-read hhe
+./custview $1
 ;;
 
 2)
@@ -22,12 +18,37 @@ read hhe
 ;;
 
 4)
+r=9
+let "r--"
+echo "$(head -$r $1)" >> temp
+let "r=r+2"
+echo "\nEnter Phone No : " 
+read ph
+echo "$ph" >> temp
+echo "$(tail +$r $1)" >> temp
 ;;
 
 5)
+r=8
+let "r--"
+echo "$(head -$r $1)" >> temp
+let "r=r+2"
+echo "\nEnter Email : " 
+read email
+echo "$email" >> temp
+echo "$(tail +$r $1)" >> temp
 ;;
 
 6)
+r=3
+let "r--"
+echo "$(head -$r $1)" >> temp
+let "r=r+2"
+echo "\nEnter Password : " 
+read pas
+echo "$pas" >> temp
+echo "$(tail +$r $1)" >> temp
+
 ;;
 
 7)
@@ -38,5 +59,10 @@ e=2
 echo -e "\nOops!! Invalid Input" ;;
 
 esac
-echo "help1"
-read g
+
+if [ -f "temp" ];
+then
+rm -r $1
+mv temp $1
+fi
+done

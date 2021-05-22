@@ -11,13 +11,9 @@ echo -en "\nEnter Your Password : "
 read pass
 check=$(head -3 $acc | tail +3)
 
-echo "$check"
-read gap
 if [[ "$pass"=="$check" ]] ; 
 then
-pwd
-read lf
-./logmenu
+./logmenu $acc
 else
 echo -e "\n\nWrong Password !!!!!!"
 read gg

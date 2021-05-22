@@ -5,8 +5,8 @@ echo -en "\n\t Customer Menu\n\n1. View Details\n2. Debit \n3. Credit \n4. Edit 
 read s
 pwd
 read hehe
-case $s in
 
+case $s in
 1)
 pwd
 read f
@@ -36,7 +36,7 @@ e=2
 
 *)
 echo -e "\nOops!! Invalid Input" ;;
-read ggg
+
 esac
 echo "help1"
 read g

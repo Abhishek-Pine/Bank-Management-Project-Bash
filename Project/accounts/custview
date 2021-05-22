@@ -1,5 +1,5 @@
 #! /bin/bash
-mon=$(((100000000000000) + $1 ))
+let " mon= 100000000000000 + $1"
 echo -e "\n\tDetails\n"
 
 echo -en "\n\nAccount No : "

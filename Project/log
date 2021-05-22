@@ -17,7 +17,7 @@ if [[ "$pass"=="$check" ]] ;
 then
 pwd
 read lf
-
+./logmenu
 else
 echo -e "\n\nWrong Password !!!!!!"
 read gg
@@ -26,4 +26,4 @@ fi
 else
 echo -en "\n\nAccount Not Found"
 fi
-
+cd ..

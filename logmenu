@@ -1,0 +1,38 @@
+#!/bin/bash
+
+clear
+echo -en "\n\t Customer Menu\n\n1. View Details\n2. Debit \n3. Credit \n4. Edit Phone No \n5. Edit E-mail \n6. Change Password \n7.Logout \n\nEnter Your Choice : "
+read s
+case $s in
+
+1)
+pwd
+read f
+./custview 
+;;
+
+2)
+;;
+
+3)
+;;
+
+4)
+;;
+
+5)
+;;
+
+6)
+;;
+
+7)
+e=2
+;;
+
+*)
+echo -e "\nOops!! Invalid Input" ;;
+read ggg
+esac
+echo "help1"
+read g

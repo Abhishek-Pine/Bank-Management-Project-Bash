@@ -7,19 +7,15 @@ read c
 case $c in 
 1)
 clear
-cd ./accounts/saving
 echo -e "\n\tSavings Accounts List\n\nAccount No\tName\t\tDOB\t\tPhone NO\tEmail ID"
-cat savacc
+cat ./savacc
 read gap
-cd ../..
 ;;
 2)
 clear
-cd ./accounts/current
 echo -e "\n\tCurrent Accounts List\n\nAccount No\tName\t\tDOB\t\tPhone NO\tEmail ID"
-cat curracc
+cat ./curracc
 read gap
-cd ../..
 ;;
 *)
 echo -e "Oops Wrong Choice "

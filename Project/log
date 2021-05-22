@@ -1,0 +1,29 @@
+#! /bin/bash
+
+clear
+cd ./accounts
+echo -en "\nEnter Your Account No : "
+read acc
+
+if [ -f "$acc" ];
+then
+echo -en "\nEnter Your Password : "
+read pass
+check=$(head -3 $acc | tail +3)
+
+echo "$check"
+read gap
+if [[ "$pass"=="$check" ]] ; 
+then
+pwd
+read lf
+
+else
+echo -e "\n\nWrong Password !!!!!!"
+read gg
+
+fi
+else
+echo -en "\n\nAccount Not Found"
+fi
+

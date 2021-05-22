@@ -1,0 +1,23 @@
+#! /bin/bash
+
+clear
+echo -e "\n1. Login Account \n2. Forget Password \n3. Account Opening Form \nPress Any Key For Exit \n"
+echo -n "Enter Your Choice : "
+read choice 
+
+case $choice in
+
+1)
+./log 
+;; 
+
+2)
+./forgetpass 
+;;
+
+*)
+echo -en "Oops!! Invalid "
+read rr
+;;
+
+esac

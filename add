@@ -1,18 +1,4 @@
 #! /bin/bash
 
 clear
-echo -ne "\n1. Saving Account \n2. Current Account\n\nEnter Your Choice : "
-read c
 
-case $c in
-1) 
-./addsav
-;;
-
-2) 
-./addcurr
-;;
-
-*)
-echo "Sorry,Wrong Input";;
-esac

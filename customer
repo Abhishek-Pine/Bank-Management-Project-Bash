@@ -1,33 +1,24 @@
 #! /bin/bash
 
-j=1
-while [ $j -eq 1 ]
-do
 clear
 echo -e "\n\tWelcome to Customer Menu\n"
-echo -e "\n1. Login Account \n2. Forget Password \n3. Account Opening Form \n4.Exit \n"
+echo -e "\n1. Savings Account \n2. Current Account \n3. Exit \n"
 echo -n "Enter Your Choice : "
-read choice 
+read ch
 
-case $choice in
-
+case $ch in
 1)
-./log ;; 
-
-2)
-./forgetpass ;;
-
-3)
+ac='Saving'
+./custmenu $ac
 ;;
 
-4)
-j=2;;
+2)
+ac='Current'
+./custmenu $ac
+;;
 
 *)
 echo -e "\nOps!!!! Invalid Input \n\n"
-read gap
- ;; 
-
+;;
 esac
-
 done

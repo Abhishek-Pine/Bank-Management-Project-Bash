@@ -23,7 +23,7 @@ read gap
 fi ;;
 
 2)
-./customer ;;
+./custmenu ;;
 
 3)
 i=2

@@ -1,0 +1,77 @@
+#! /bin/bash
+
+clear
+
+case $1 in
+Saving)
+bcode=9123
+count=$(tail -1 './savno')
+type='Saving'
+;;
+
+Current)
+
+bcode=9124
+count=$(tail -1 './currno')
+type='Current'
+;;
+
+esac
+
+echo -e "\n\tEnter Details"
+
+
+echo -en "\nEnter First Name : "
+read fname
+
+echo -en "\nEnter Last Name : "
+read lname
+
+echo -en "\nEnter Address : "
+read ad
+
+echo -en "\nEnter Date of Birth (dd/mm/yyyy) : "
+read dob
+
+echo -en "\nEnter Aadhar No : "
+read adh
+
+echo -en "\nEnter Email : "
+read email
+
+echo -en "\nEnter Mobile No : "
+read ph
+
+echo -en "\nEnter Bal : "
+read bal
+
+echo -en "\nEnter Password : "
+read pas
+
+accno=$(((bcode*1000000000)+count))
+mon=$(((100000000000000) + $accno ))
+
+echo -en "$accno\n$type\n$pas\n$fname $lname\n$ad\n$dob\n$adh\n$email\n$ph" > ./accounts/$accno
+echo -en "$bal" > ./accounts/balance/$mon
+count=$((count+1))
+case $1 in
+
+Saving)
+
+echo "$count" > ./savno
+echo -e "$accno\t$fname $lname\t$dob\t$ph\t$email" >> ./savacc
+;;
+
+Current)
+
+echo "$count" > ./currno
+echo -e "$accno\t$fname $lname\t$dob\t$ph\t$email" >> ./curracc
+;;
+esac
+
+
+echo -e "\nAccount No : $accno \n\nWait For 1 minute"
+echo -e "Congratulations $fname $lname your Account has been open Sucessfully \n\nAccouunt No : $accno\nDOB : $dob\nEmail : $email\nPhone No : $ph\nBalance : $bal \nDefault Password : $pas\n" | mail -s "Account Opened Sucessfully" $email
+echo -e "\n\nAccount has been open Sucessfully"
+read gap
+

@@ -7,13 +7,13 @@ read c
 case $c in 
 1)
 clear
-echo -e "\n\tSavings Accounts List\n\nAccount No\tName\t\t\tDOB\t\tPhone NO\tEmail ID"
+echo -e "\n\tSavings Accounts List\n\nAccount No\tName"
 cat ./savacc
 read gap
 ;;
 2)
 clear
-echo -e "\n\tCurrent Accounts List\n\nAccount No\tName\t\t\tDOB\t\tPhone NO\tEmail ID"
+echo -e "\n\tCurrent Accounts List\n\nAccount No\tName"
 cat ./curracc
 read gap
 ;;

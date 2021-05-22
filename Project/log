@@ -11,7 +11,7 @@ echo -en "\nEnter Your Password : "
 read pass
 check=$(head -3 $acc | tail +3)
 
-if [[ "$pass"=="$check" ]] ; 
+if [[ "$pass" == "$check" ]] ; 
 then
 ./logmenu $acc
 else

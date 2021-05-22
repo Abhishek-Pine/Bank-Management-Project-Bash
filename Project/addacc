@@ -59,13 +59,13 @@ case $1 in
 Saving)
 
 echo "$count" > ./savno
-echo -e "$accno\t$fname $lname\t$dob\t$ph\t$email" >> ./savacc
+echo -e "$accno\t$fname $lname" >> ./savacc
 ;;
 
 Current)
 
 echo "$count" > ./currno
-echo -e "$accno\t$fname $lname\t$dob\t$ph\t$email" >> ./curracc
+echo -e "$accno\t$fname $lname" >> ./curracc
 ;;
 esac
 

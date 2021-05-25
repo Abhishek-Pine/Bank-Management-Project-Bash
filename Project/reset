@@ -1,17 +1,22 @@
 #! /bin/bash
 
 
-rm -r accounts/balance
+rm -r accounts
+rm -r del
 rm savacc savno savdel curracc currno currdel
 mkdir accounts
 mkdir accounts/balance
 
-mkdir del
-touch savacc savno savdel
-chmod +770 savacc savno savdel
-echo -n "2" > savno
+cp view(cust) ./accounts
+cp menu(log) ./accounts
 
-touch curracc currno currdel
-chmod +770 curracc currno currdel
+mkdir del
+touch savacc savno savdel curracc currno currdel
+chmod +770 savacc savno savdel curracc currno currdel
+echo -n "2" > savno
 echo -n "2" > currno
 
+cd ./accounts 
+mv view(cust) custview
+mv menu(log) logmenu
+cd ..

@@ -1,0 +1,30 @@
+#! /bin/bash
+let " mon= 100000000000000 + $1"
+echo -e "\n\tDetails\n"
+
+echo -en "\n\nAccount No : "
+echo $(head -1 $1 | tail +1)
+
+echo -en "Name : "
+echo $(head -4 $1 | tail +4)
+
+echo -en "Address : "
+echo $(head -5 $1 | tail +5)
+
+echo -en "Date of Birth (dd/mm/yyyy) : "
+echo $(head -6 $1 | tail +6)
+
+echo -en "Aadhar No : "
+echo $(head -7 $1 | tail +7)
+
+echo -en "Email : "
+echo $(head -8 $1 | tail +8)
+
+echo -en "Mobile No : "
+echo $(head -9 $1 | tail +9)
+
+echo -en "Bal : "
+echo $(head -1 ./balance/$mon | tail +1 )
+echo -en ""
+read get
+

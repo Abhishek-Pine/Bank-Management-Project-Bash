@@ -1,0 +1,70 @@
+#!/bin/bash
+
+clear
+echo -en "\n\tDelete Menu \n\n1. Delete Account \n2. View Deleted Accounts \nEnter your Choice : "
+read cv 
+
+case $cv in
+1)
+cd ./accounts
+echo -en "\nEnter Account No : "
+read accno
+
+if [ -f "$accno" ];
+then
+type=$( head -2 $accno | tail -n +2 )
+mv $accno ../del
+let "mon = (100000000000000) + accno "
+mv ./balance/$mon ../del/delbal
+cd ..
+
+case $type in
+
+Saving)
+sed '/$accno/p' ./savacc  >> ./savdel
+sed '/^$/d' ./savdel
+sed '/$accno/d' ./savacc  > ./savacc
+sed '/^$/d' ./savacc
+;;
+
+Current)
+sed '/$accno/p' ./curracc  >> ./currdel
+sed '/^$/d' ./currdel
+sed '/$accno/d' ./curracc  > ./curracc
+sed '/^$/d' ./curracc 
+;;
+*)
+;;
+esac
+echo -en "\n\nAccount Deleted Sucessfully \n"
+read gap
+else
+echo -en "\n\nOops!! Account Not Found \n"
+read gh
+fi
+
+;;
+
+2)
+clear
+echo -en "\n\tDeleted Account List Menu\n\n1. Savings Account List\n2. Current Account List\n\nEnter your Choice : "
+read c
+case $c in 
+1)
+clear
+echo -e "\n\tSavings Accounts List\n\nAccount No\tName"
+cat ./savdel
+read gap
+;;
+2)
+clear
+echo -e "\n\tCurrent Accounts List\n\nAccount No\tName"
+cat ./currdel
+read gap
+;;
+esac
+;;
+*)
+echo -n "\n\nOops!! Wrong Choice " 
+;;
+esac

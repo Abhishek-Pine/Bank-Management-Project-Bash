@@ -43,7 +43,7 @@ cd ..
 ./adlist ;;
 
 5) 
-./delete ;;
+./addel ;;
 
 6)
 ./reset;;

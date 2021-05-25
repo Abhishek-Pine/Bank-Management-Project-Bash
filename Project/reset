@@ -7,8 +7,8 @@ rm savacc savno savdel curracc currno currdel
 mkdir accounts
 mkdir accounts/balance
 
-cp view(cust) ./accounts
-cp menu(log) ./accounts
+cp viewcust ./accounts
+cp menulog ./accounts
 
 mkdir del
 touch savacc savno savdel curracc currno currdel
@@ -17,6 +17,7 @@ echo -n "2" > savno
 echo -n "2" > currno
 
 cd ./accounts 
-mv view(cust) custview
-mv menu(log) logmenu
+mv viewcust custview
+mv menulog logmenu
 cd ..
+read gap

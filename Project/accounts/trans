@@ -1,0 +1,77 @@
+#! /bin/bash
+
+clear
+echo -en "\n\n\tTransaction Menu \n1. Debit \n2. Credit \n3. Last 5 Debit \n4. Last 5 Credit \n5. Exit\nEnter Your Choice :"
+read cs
+dd=$(date)
+
+case $cs in
+
+	1)
+		let " mon= 100000000000000 + $1"
+		clear
+		echo -en "\n\tDebit \n\nBalance : "
+		cat ./balance/$mon
+		bal=$(head -1 ./balance/$mon | tail +1 )
+		echo -en "\nEnter Amount :  "
+		read amm
+		if [[ "$bal" -gt "$amm+500" ]];
+		then 
+			let "bal = bal-amm"
+			echo "$bal" > ./balance/$mon
+			echo -e "$amm \t| Debit \t| $dd " >> $1
+			echo -en "You have Debited $amm Rs from your Bank Account at $dd .\nCurrent Balance : $bal .\n\nFor Further Enquires ,Please Visit Branch\nThank-you For Choosing Our Bank\n\n\n*****This Mail is Automatically Generated *****" | mail -s "Money Debited " $(head -n 8 $1 | tail -n +8 )
+			echo  -en "\nBalance : $bal\n\n***** Transaction Successfull *****"
+			echo -e "\n\nPress Any Key To Continue "
+			read gi
+		else
+			echo  -en "\n***** Insufficent Balance *****"
+			echo -e "\n\nPress Any Key To Continue "
+			read gi
+		fi 
+	;;
+
+	2)
+		let " mon= 100000000000000 + $1"
+		clear
+		echo -en "\n\tCredit \n\nBalance : "
+		cat ./balance/$mon
+		bal=$(head -1 ./balance/$mon | tail +1 )
+		echo -en "\nEnter Amount :  "
+		read amm
+		let "bal = bal+amm"
+		echo "$bal" > ./balance/$mon
+		echo -e "$amm \t| Credit \t| $dd " >> $1
+echo -en "You have Credited $amm Rs in your Bank Account at $dd .\nCurrent Balance : $bal .\n\nFor Further Enquires ,Please Visit Branch\nThank-you For Choosing Our Bank\n\n\n*****This Mail is Automatically Generated *****" | mail -s "Money Credited " $(head -n 8 $1 | tail -n +8 )
+		echo  -en "\nBalance : $bal\n\n***** Transaction Successfull *****"
+		echo -e "\n\nPress Any Key To Continue "
+		read gp
+		 
+	;;
+
+	3)
+		clear
+		echo -e "\n\nLast 5 Debit Details\n"
+		echo -e "\nAmmount \t: Date \n"
+		tail -5 $1 | sed -n '/Debit/p' | awk 'BEGIN{ FS="|" ; OFS="\t:" }{ print $1,$3 }'
+		echo -e "\n\nPress Any Key To Continue "
+		read ga
+	;;
+
+	4)
+		clear
+		echo -e "\n\nLast 5 Credit Details\n"
+		echo -e "\nAmmount \t: Date \n"
+		tail -5 $1 | sed -n '/Credit/p'| awk 'BEGIN{ FS="|" ; OFS="\t:" }{ print $1,$3 }'
+		echo -e "\n\nPress Any Key To Continue "
+		read ge
+	;;
+	5)
+	;;
+
+	*)
+		echo -e "\nOops!! Invalid Input\n\nPress Any Key To Continue " 
+		read gap
+esac
+
+

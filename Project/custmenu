@@ -1,7 +1,7 @@
 #! /bin/bash
 
 clear
-echo -e "\n1. Login Account \n2. Forget Password \n3. Account Opening Form \nPress Any Key For Exit \n"
+echo -e "\n\tCustomer Menu\n\n1. Login Account \n2. Account Opening Form \n3. Exit\n"
 echo -n "Enter Your Choice : "
 read choice 
 
@@ -12,12 +12,17 @@ case $choice in
 ;; 
 
 2)
-./forgetpass 
+ 
+;;
+
+3)
+
 ;;
 
 *)
-echo -en "Oops!! Invalid "
-read rr
+echo -en "Oops!! Invalid Input "
+echo -e "\nPress Any Key To Continue "
+read gap
 ;;
 
 esac

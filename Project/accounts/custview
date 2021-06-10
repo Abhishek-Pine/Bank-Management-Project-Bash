@@ -1,4 +1,5 @@
 #! /bin/bash
+clear
 let " mon= 100000000000000 + $1"
 echo -e "\n\tDetails\n"
 
@@ -25,6 +26,6 @@ echo $(head -9 $1 | tail +9)
 
 echo -en "Bal : "
 echo $(head -1 ./balance/$mon | tail +1 )
-echo -en ""
-read get
+echo -e "\n\nPress Any Key To Continue "
+read ge
 

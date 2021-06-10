@@ -28,11 +28,13 @@ fi ;;
 3)
 i=2
 echo -e "\nThankyou Visit Again\n\n"
+echo -e "\nPress Any Key To Continue "
 read gap
  ;; 
 
 *)
 echo -e "\nOops!! Invalid Input"
+echo -e "\nPress Any Key To Continue "
 read gap
 ;;
 

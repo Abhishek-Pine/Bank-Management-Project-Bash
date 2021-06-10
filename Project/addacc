@@ -73,5 +73,6 @@ esac
 echo -e "\nAccount No : $accno \n\nWait For 1 minute"
 echo -e "Congratulations $fname $lname , Your Account has been Opened Sucessfully \n\nAccouunt No : $accno\nDOB : $dob\nEmail : $email\nPhone No : $ph\nBalance : $bal \nDefault Password : $pas\n\nFor Further Enquires ,Please Visit Branch\nThank-you For Choosing Our Bank\n\n\n*****This Mail is Automatically Generated *****" | mail -s "Bank Account Opened Sucessfully" $email
 echo -e "\n\nAccount has been Opened Sucessfully"
+echo -e "\nPress Any Key To Continue "
 read gap
 

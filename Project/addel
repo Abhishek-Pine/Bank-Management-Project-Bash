@@ -37,9 +37,11 @@ sed '/^$/d' ./curracc
 ;;
 esac
 echo -en "\n\nAccount Deleted Sucessfully \n"
+echo -e "\nPress Any Key To Continue "
 read gap
 else
 echo -en "\n\nOops!! Account Not Found \n"
+echo -e "\nPress Any Key To Continue "
 read gh
 fi
 
@@ -54,17 +56,21 @@ case $c in
 clear
 echo -e "\n\tSavings Accounts List\n\nAccount No\tName"
 cat ./savdel
+echo -e "\nPress Any Key To Continue "
 read gap
 ;;
 2)
 clear
 echo -e "\n\tCurrent Accounts List\n\nAccount No\tName"
 cat ./currdel
+echo -e "\nPress Any Key To Continue "
 read gap
 ;;
 esac
 ;;
 *)
 echo -n "\n\nOops!! Wrong Choice " 
+echo -e "\nPress Any Key To Continue "
+read gap
 ;;
 esac

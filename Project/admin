@@ -50,6 +50,7 @@ j=2;;
 
 *)
 echo -en "\nInvalid Input\t"
+echo -e "\nPress Any Key To Continue "
 read gap
  ;; 
 

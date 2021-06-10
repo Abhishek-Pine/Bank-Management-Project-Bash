@@ -9,17 +9,20 @@ case $c in
 clear
 echo -e "\n\tSavings Accounts List\n\nAccount No\tName"
 cat ./savacc
+echo -e "\nPress Any Key To Continue "
 read gap
 ;;
 2)
 clear
 echo -e "\n\tCurrent Accounts List\n\nAccount No\tName"
 cat ./curracc
+echo -e "\nPress Any Key To Continue "
 read gap
 ;;
 *)
 echo -e "Oops Wrong Choice "
-read gap;
+echo -e "\nPress Any Key To Continue "
+read gap
 ;;
 esac
 

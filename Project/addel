@@ -24,14 +24,14 @@ Saving)
 sed '/$accno/p' ./savacc  >> ./savdel
 # sed '/^$/d' ./savdel
 echo "$(sed '/$accno/d' ./savacc )" > ./savacc
-echo "$(sed '/^$/d' ./savacc)" > ./savacc
+echo "$(sed '/^$/d' ./savacc ) " > ./savacc
 ;;
 
 Current)
 sed '/$accno/p' ./curracc  >> ./currdel
 # sed '/^$/d' ./currdel
 echo "$(sed '/$accno/d' ./curracc )" > ./curracc
-echo "$(sed '/^$/d' ./curracc )" > ./curracc 
+echo "$(sed '/^$/d' ./curracc ) " > ./curracc 
 ;;
 *)
 ;;

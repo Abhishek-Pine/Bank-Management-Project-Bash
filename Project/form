@@ -49,7 +49,7 @@ else
 echo -en "\n$typ\n$pas\n$fname $lname\n$ad\n$dob\n$adh\n$email\n$ph\n" > ./forms/$tok 
 echo -e "$tok | $fname $lname" >> ./foracc
 fi
-
-echo -e "Dear $fname $lname , Your New Account Opening Application $tok is in process.Kindly Visit your nearest branch for Physical Verification with your documents.\n\n\n\nFor Further Enquires ,Please Visit Branch\nThank-you For Choosing Our Bank\n\n\n*****This Mail is Automatically Generated *****" | mail -s "New Bank Account Form Details" $email
+echo -e "\n\nWait for 1min "
+echo -e "Dear $fname $lname ,\nYour New Account Opening Application $tok is in process.Kindly Visit your nearest branch for Physical Verification with your documents.\n\n\n\nFor Further Enquires ,Please Visit Branch\nThank-you For Choosing Our Bank\n\n\n*****This Mail is Automatically Generated *****" | mail -s "New Bank Account Form Details" $email
 echo -e "\nYour Token No : $tok \n\nPress Any Key To Continue "
 read gap

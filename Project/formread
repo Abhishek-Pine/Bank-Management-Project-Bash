@@ -1,0 +1,82 @@
+#!/bin/bash
+clear
+
+cd ./forms
+typ=$(head -2 $1 | tail +2)
+name=$(head -4 $1 | tail +4)
+ad=$(head -5 $1 | tail +5)
+dob=$(head -6 $1 | tail +6)
+adh=$(head -7 $1 | tail +7)
+email=$(head -8 $1 | tail +8)
+ph=$(head -9 $1 | tail +9)
+pas=$(head -3 $1 | tail +3)
+
+cd ..
+
+case $typ in
+	Saving)
+	bcode=9123
+	count=$(tail -1 './savno')
+	type='Saving'
+	;;
+
+	Current)
+
+	bcode=9124
+	count=$(tail -1 './currno')
+	type='Current'
+	;;
+
+esac
+
+
+case $typ in
+	Saving)
+		bcode=9123
+		count=$(tail -1 './savno')
+		type='Saving'
+	;;
+
+	Current)
+
+		bcode=9124
+		count=$(tail -1 './currno')
+		type='Current'
+	;;
+
+esac
+
+echo -en "\nEnter Bal : "
+read bal
+
+let "accno = (bcode*1000000000) + count "
+let "mon = (100000000000000) + accno "
+
+echo -en "$accno\n$type\n$pas\n$name\n$ad\n$dob\n$adh\n$email\n$ph\n" > ./accounts/$accno
+echo -en "$bal" > ./accounts/balance/$mon
+let "count++"
+case $typ in
+
+	Saving)
+
+		echo "$count" > ./savno
+		echo -e "$accno\t$name " >> ./savacc
+	;;
+
+	Current)
+
+		echo "$count" > ./currno
+		echo -e "$accno\t$name " >> ./curracc
+	;;
+esac
+
+
+echo -e "\nAccount No : $accno \n\nWait For 1 minute"
+echo -e "Congratulations $name , Your Account has been Opened Sucessfully \n\nAccouunt No : $accno\nDOB : $dob\nEmail : $email\nPhone No : $ph\nBalance : $bal \nPassword : $pas\n\nFor Further Enquires ,Please Visit Branch\nThank-you For Choosing Our Bank\n\n\n*****This Mail is Automatically Generated *****" | mail -s "Bank Account Opened Sucessfully" $email
+echo -e "\n\nAccount has been Opened Sucessfully"
+
+sed '/$1/d' ./foracc  > ./foracc
+sed '/^$/d' ./foracc
+rm ./forms/$1
+
+

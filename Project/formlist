@@ -1,0 +1,95 @@
+#!/bin/bash
+
+j=1
+
+while [ $j -eq 1 ]
+do
+clear
+
+	echo -e "\n\tNew Account Form List\n\nToken\t\t: Name\n"
+	awk 'BEGIN{ FS="|" ; OFS="\t\t:" }{ print $1,$2 }' ./foracc
+
+	echo -en "\n\n1. View Apllication \n2. Exit\nEnter Your Choice : "
+	read h
+	case $h in
+
+		1)
+		echo -en "\n\nEnter Token No : " 
+		read tk
+		cd ./forms
+
+		if [ -f "$tk" ] ;
+		then
+		clear
+		echo -e "\n\tDetails\n"
+
+		echo -en "\n\nToken No : "
+		echo $tk
+
+		echo -en "Name : "
+		echo $(head -4 $tk | tail +4)
+
+		echo -en "Address : "
+		echo $(head -5 $tk | tail +5)
+
+		echo -en "Date of Birth (dd/mm/yyyy) : "
+		echo $(head -6 $tk | tail +6)
+
+		echo -en "Aadhar No : "
+		echo $(head -7 $tk | tail +7)
+
+		echo -en "Email : "
+		echo $(head -8 $tk | tail +8)
+
+		echo -en "Mobile No : "
+		echo $(head -9 $tk | tail +9)
+			
+		name=$(head -4 $tk | tail +4)
+		email=$(head -8 $tk | tail +8)
+		cd ..
+		e=1
+
+		while [ $e -eq 1 ] 
+		do
+			echo -en "\n\n1. Accept \n2. Reject \n3. Exit\nEnter Your Choice : " 
+			read ap
+			case $ap in
+			1)
+			./formread $tk
+			e=0
+			;;
+			2)
+			cd ./forms
+			rm $tk	
+			cd ..
+			sed '/$tk/d' ./foracc  > ./foracc
+			sed '/^$/d' ./foracc
+			echo -e "\nApplication is Rejected \n\nWait For 1 minute"
+			echo -e "Dear $name , Your New Account Opening Application $tk is rejected.Kindly Visit your nearest branch.\n\n\n\nFor Further Enquires ,Please Visit Branch\nThank-you For Choosing Our Bank\n\n\n*****This Mail is Automatically Generated *****" | mail -s "Your Application is Rejected " $email
+			
+			e=0
+			;;
+			3)
+			e=0
+			;;
+			*)
+			;;
+			esac
+		done
+		else
+			echo -e "\nOops!!!! Wrong Token Entered"
+		cd ..
+		fi
+		;;
+
+		2)
+		j=0
+		;;
+		*)
+		;;
+		esac
+	echo -e "\nPress Any Key To Continue "
+	read gap
+
+done
+

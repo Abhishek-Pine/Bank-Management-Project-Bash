@@ -51,7 +51,7 @@ read pas
 let "accno = (bcode*1000000000) + count "
 let "mon = (100000000000000) + accno "
 
-echo -en "$accno\n$type\n$pas\n$fname $lname\n$ad\n$dob\n$adh\n$email\n$ph" > ./accounts/$accno
+echo -en "$accno\n$type\n$pas\n$fname $lname\n$ad\n$dob\n$adh\n$email\n$ph\n" > ./accounts/$accno
 echo -en "$bal" > ./accounts/balance/$mon
 let "count++"
 case $1 in

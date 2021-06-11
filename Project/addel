@@ -15,7 +15,7 @@ then
 type=$( head -2 $accno | tail -n +2 )
 mv $accno ../del
 let "mon = (100000000000000) + accno "
-mv ./balance/$mon ../del/delbal
+mv ./balance/$mon ../del/$mon
 cd ..
 
 case $type in

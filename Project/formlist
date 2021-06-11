@@ -62,8 +62,8 @@ clear
 			cd ./forms
 			rm $tk	
 			cd ..
-			sed '/$tk/d' ./foracc  > ./foracc
-			sed '/^$/d' ./foracc
+			echo "$(sed '/$tk/d' ./foracc ) " > ./foracc
+			echo "$(sed '/^$/d' ./foracc ) " > ./foracc
 			echo -e "\nApplication is Rejected \n\nWait For 1 minute"
 			echo -e "Dear $name , Your New Account Opening Application $tk is rejected.Kindly Visit your nearest branch.\n\n\n\nFor Further Enquires ,Please Visit Branch\nThank-you For Choosing Our Bank\n\n\n*****This Mail is Automatically Generated *****" | mail -s "Your Application is Rejected " $email
 			

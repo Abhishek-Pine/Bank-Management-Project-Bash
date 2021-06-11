@@ -7,38 +7,39 @@ clear
 echo -ne "\n\tMain Menu\n\n1. Admin \n2. Customer \n3. Exit\n\nEnter Your Choice : "
 read v 
 
-case $v in
+	case $v in
 
-1)
-clear
-echo -ne "\n\nEnter Admin Password : "
-read -s pass
-if [ $pass == "admin" ]
-then
-./admin
-else
-echo -e "\n\nWrong Password \n\n"
-echo -n "Press any Key for Exit"
-read gap
-fi ;;
+	1)
+		clear
+		echo -ne "\n\nEnter Admin Password : "
+		read -s pass
+		if [ $pass == "admin" ]
+		then
+		./admin
+		else
+		echo -e "\n\nWrong Password \n\n"
+		echo -n "Press any Key for Exit"
+		read gap
+		fi 
+	;;
 
-2)
-./custmenu ;;
+	2)
+		./custmenu ;;
 
-3)
-i=2
-echo -e "\nThankyou Visit Again\n\n"
-echo -e "\nPress Any Key To Continue "
-read gap
- ;; 
+	3)
+		i=2
+		echo -e "\nThankyou Visit Again\n\n"
+		echo -e "\nPress Any Key To Continue "
+		read gap
+	 ;; 
 
-*)
-echo -e "\nOops!! Invalid Input"
-echo -e "\nPress Any Key To Continue "
-read gap
-;;
+	*)
+		echo -e "\nOops!! Invalid Input"
+		echo -e "\nPress Any Key To Continue "
+		read gap
+	;;
 
-esac
+	esac
 
 done
 

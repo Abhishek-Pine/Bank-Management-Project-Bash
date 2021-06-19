@@ -1,93 +1,166 @@
 #! /bin/bash
 
 clear
-echo -en "\n\n\tEdit Details\n\nEnter Your Account No : "
+
+echo -en "\n\t  ______    _ _ _     _____       _        _ _      "
+echo -en "\n\t |  ____|  | (_) |   |  __ \     | |      (_) |     "
+echo -en "\n\t | |__   __| |_| |_  | |  | | ___| |_ __ _ _| |___  "
+echo -en "\n\t |  __| / _  | | __| | |  | |/ _ \ __/ _  | | / __| "
+echo -en "\n\t | |___| (_| | | |_  | |__| |  __/ || (_| | | \__ \ "
+echo -en "\n\t |______\____|_|\__| |_____/ \___|\__\____|_|_|___/ "
+
+echo -en "\n\n\nEnter Your Account No : "
 read acc
 cd ./accounts
+
 if [ -f "$acc" ];
 then
-echo -en "\n1. Password \n2. Address \n3. DOB \n4. Aadhar \n5. Email \n6. Phone No \n7. Exit \n Enter Your Choice "  
-read cq
-case $cq in
+l=1
+while [ $l -eq 1 ]
+do
+	clear
+	
+	echo -en "\n\t  ______    _ _ _     _____       _        _ _      "
+	echo -en "\n\t |  ____|  | (_) |   |  __ \     | |      (_) |     "
+	echo -en "\n\t | |__   __| |_| |_  | |  | | ___| |_ __ _ _| |___  "
+	echo -en "\n\t |  __| / _  | | __| | |  | |/ _ \ __/ _  | | / __| "
+	echo -en "\n\t | |___| (_| | | |_  | |__| |  __/ || (_| | | \__ \ "
+	echo -en "\n\t |______\____|_|\__| |_____/ \___|\__\____|_|_|___/ "
+	echo -en "\n\n1. Password \n2. Address \n3. DOB \n4. Aadhar \n5. Email \n6. Phone No \n7. Exit \n\nEnter Your Choice : "  
+	read cq
+		case $cq in
 
-1)
-r=3
-let "r--"
-echo "$(head -$r $acc)" >> temp
-let "r=r+2"
-echo -en "\nEnter Password : " 
-read pas
-echo "$pas" >> temp
-echo "$(tail +$r $acc)" >> temp
-;;
+		1)
+			r=3
+			let "r--"
+			echo "$(head -$r $acc)" >> temp
+			let "r=r+2"
+			echo -en "\nEnter Password : " 
+			read pas
+			echo "$pas" >> temp
+			echo "$(tail +$r $acc)" >> temp
+			echo -en "\n\nDetails Updated.\nEnter any key to continue "
+			read gap
+		;;
 
 
-2)
-r=5
-let "r--"
-echo "$(head -$r $acc)" >> temp
-let "r=r+2"
-echo -en "\nEnter Address : " 
-read ad
-echo "$ad" >> temp
-echo "$(tail +$r $acc)" >> temp
-;;
-3)
-r=6
-let "r--"
-echo "$(head -$r $acc)" >> temp
-let "r=r+2"
-echo -en "\nEnter DOB : " 
-read dob
-echo "$dob" >> temp
-echo "$(tail +$r $acc)" >> temp
-;;
-4)
-r=7
-let "r--"
-echo "$(head -$r $acc)" >> temp
-let "r=r+2"
-echo -en "\nEnter Aadhar : " 
-read adh
-echo "$adh" >> temp
-echo "$(tail +$r $acc)" >> temp
-;;
-5)
-r=8
-let "r--"
-echo "$(head -$r $acc)" >> temp
-let "r=r+2"
-echo -en "\nEnter Email : " 
-read email
-echo "$email" >> temp
-echo "$(tail +$r $acc)" >> temp
-;;
+		2)
+			r=5
+			let "r--"
+			echo "$(head -$r $acc)" >> temp
+			let "r=r+2"
+			echo -en "\nEnter Address : " 
+			read ad
+			echo "$ad" >> temp
+			echo "$(tail +$r $acc)" >> temp
+			echo -en "\n\nDetails Updated.\nEnter any key to continue "
+			read gap
+		;;
+		3)
+			r=6
+			let "r--"
+			echo "$(head -$r $acc)" >> temp
+			let "r=r+2"
+			echo -en "\nEnter DOB : " 
+			unset dob
+			k=1
+			while [[ ! $dob =~ ^(0[1-9]|[1-2][0-9]|3[0-1])[-/.](0[1-9]|1[0-2])[-/.][0-9]{4}$ ]];
+			do
+				if [ $k -gt 1 ] ;
+				then
+				echo -en "\nEnter Correct DOB : "
+				fi
+				read dob
+				let "k=k+1"
+			done
+			echo "$dob" >> temp
+			echo "$(tail +$r $acc)" >> temp
+			echo -en "\n\nDetails Updated.\nEnter any key to continue "
+			read gap
+		;;
+		4)
+			r=7
+			let "r--"
+			echo "$(head -$r $acc)" >> temp
+			let "r=r+2"
+			echo -en "\nEnter Aadhar : " 
+			unset adh
+			k=1
+			while [[ ! $adh =~ ^[0-9]{12}$ ]];
+			do
+				if [ $k -gt 1 ] ;
+				then
+				echo -en "\nEnter Correct Aadhaar No : "
+				fi
+				read adh
+				let "k=k+1"
+			done
+			echo "$adh" >> temp
+			echo "$(tail +$r $acc)" >> temp
+			echo -en "\n\nDetails Updated.\nEnter any key to continue "
+			read gap
+		;;
+		5)
+			r=8
+			let "r--"
+			echo "$(head -$r $acc)" >> temp
+			let "r=r+2"
+			echo -en "\nEnter Email : " 
+			read email
+			echo "$email" >> temp
+			echo "$(tail +$r $acc)" >> temp
+			echo -en "\n\nDetails Updated.\nEnter any key to continue "
+			read gap
+		;;
 
-6)
-r=9
-let "r--"
-echo "$(head -$r $acc)" >> temp
-let "r=r+2"
-echo -en "\nEnter Phone No : " 
-read ph
-echo "$ph" >> temp
-echo "$(tail +$r $acc)" >> temp
-;;
+		6)
+			r=9
+			let "r--"
+			echo "$(head -$r $acc)" >> temp
+			let "r=r+2"
+			echo -en "\nEnter Phone No : " 
+			unset ph
+			k=1
+			while [[ ! $ph =~ ^[1-9][0-9]{9}$ ]];
+			do
+				if [ $k -gt 1 ] ;
+				then
+				echo -en "\nEnter Correct Phone No : "
+				fi
+				read ph
+				let "k=k+1"
+			done
+			echo "$ph" >> temp
+			echo "$(tail +$r $acc)" >> temp
+			echo -en "\n\nDetails Updated.\nEnter any key to continue "
+			read gap
+		;;
 
-7)
-;;
+		7)
+			l=2
+		;;
 
-*)
-echo -en "\n\nInvalid Input";;
-esac
+		*)
+			echo -en "\n\nInvalid Input!!!\nEnter any key to continue ."
+			read gap
+		;;
 
-if [ -f "temp" ];
-then
-rm -r $acc
-mv temp $acc
-fi
+		esac
 
+		if [ -f "temp" ];
+		then
+			rm -r $acc
+			mv temp $acc
+		fi
+done
 else
-echo -e "\nOops!! Account Not Found"
-read gap
+	echo -e "\n\nOops!! Account Not Found.\nEnter any key to continue ."
+	read gap
 fi 
+
+
+
+
+
+
+

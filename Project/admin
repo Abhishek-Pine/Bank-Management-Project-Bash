@@ -5,14 +5,27 @@ while [ $j -eq 1 ]
 do
 clear
 
-echo -e "\n\tWelcome to Admin Menu\n"
-echo -e "\n1. Add Accounts \n2. Edit Accounts \n3. Veiw Account \n4. View All Accounts \n5. Delete Account \n6. Forms \n7. Exit\n"
+echo -en "\n\t __          __  _                            _                      _           _         __  __                  "
+echo -en "\n\t \ \        / / | |                          | |            /\      | |         (_)       |  \/  |                 "
+echo -en "\n\t  \ \  /\  / /__| | ___ ___  _ __ ___   ___  | |_ ___      /  \   __| |_ __ ___  _ _ __   | \  / | ___ _ __  _   _ "
+echo -en "\n\t   \ \/  \/ / _ \ |/ __/ _ \|  _   _ \ / _ \ | __/ _ \    / /\ \ / _  |  _   _ \| |  _ \  | |\/| |/ _ \  _ \| | | |"
+echo -en "\n\t    \  /\  /  __/ | (_| (_) | | | | | |  __/ | || (_) |  / ____ \ (_| | | | | | | | | | | | |  | |  __/ | | | |_| |"
+echo -en "\n\t     \/  \/ \___|_|\___\___/|_| |_| |_|\___|  \__\___/  /_/    \_\__,_|_| |_| |_|_|_| |_| |_|  |_|\___|_| |_|\____|"
+
+echo -e "\n\n\n1. Add Accounts \n2. Edit Accounts \n3. Veiw Account \n4. View All Accounts \n5. Delete Account \n6. Forms \n7. Exit\n"
 echo -n "Enter Your Choice : "
 read choice 
 case $choice in
 
 	1)
-	echo -ne "\n\n\tAdd \n1. Saving Account \n2. Current Account\n\nEnter Your Choice : "
+	clear
+	echo -en "\n\t              _     _                                     _   "
+	echo -en "\n\t     /\      | |   | |     /\                            | |  "
+	echo -en "\n\t    /  \   __| | __| |    /  \   ___ ___ ___  _   _ _ __ | |_ "
+	echo -en "\n\t   / /\ \ / _  |/ _  |   / /\ \ / __/ __/ _ \| | | |  _ \| __|"
+	echo -en "\n\t  / ____ \ (_| | (_| |  / ____ \ (_| (_| (_) | |_| | | | | |_ "
+	echo -en "\n\t /_/    \_\____|\____| /_/    \_\___\___\___/ \____|_| |_|\__|"
+	echo -ne "\n\n\n1. Saving Account \n2. Current Account\n\nEnter Your Choice : "
 	read c
 
 		case $c in
@@ -25,7 +38,8 @@ case $choice in
 		;;
 
 		*)
-		echo "Sorry,Wrong Input";;
+		echo -e "\nOops!!! Wrong Input. \nPress Any Key To Continue "
+		read gap;;
 		esac
 	;;
 
@@ -33,7 +47,14 @@ case $choice in
 		./adedit ;;
 
 	3)
-		echo -en "\n\nEnter Account No : " 
+		clear
+		echo -en "\n\t __      ___                                                   _  " 
+		echo -en "\n\t \ \    / (_)                   /\                            | |  "
+		echo -en "\n\t  \ \  / / _  _____      __    /  \   ___ ___ ___  _   _ _ __ | |_ "
+		echo -en "\n\t   \ \/ / | |/ _ \ \ /\ / /   / /\ \ / __/ __/ _ \| | | | '_ \| __|"
+		echo -en "\n\t    \  /  | |  __/\ V  V /   / ____ \ (_| (_| (_) | |_| | | | | |_ "
+		echo -en "\n\t     \/   |_|\___| \_/\_/   /_/    \_\___\___\___/ \__,_|_| |_|\__|"
+		echo -en "\n\n\nEnter Account No : " 
 		read accc
 		cd ./accounts
 		./custview $accc
@@ -53,11 +74,18 @@ case $choice in
 	j=2;;
 
 	*)
-	echo -en "\nInvalid Input\t"
-	echo -e "\nPress Any Key To Continue "
+	echo -en "\nInvalid Input!!! \nPress Any Key To Continue "
 	read gap
 	 ;; 
 
 esac
 
 done
+
+
+
+
+
+
+
+

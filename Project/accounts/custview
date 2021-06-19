@@ -1,31 +1,70 @@
 #! /bin/bash
-clear
+
 let " mon= 100000000000000 + $1"
-echo -e "\n\tDetails\n"
+if [ -f "$1" ] ;
+then
+	clear
+	echo -e "\n\n"
+	echo -e "\t                                    _     _____       _        _ _     "
+	echo -e "\t     /\                            | |   |  __ \     | |      (_) |    "
+	echo -e "\t    /  \   ___ ___ ___  _   _ _ __ | |_  | |  | | ___| |_ __ _ _| |___ "
+	echo -e "\t   / /\ \ / __/ __/ _ \| | | |  _  | __| | |  | |/ _ \ __/ _  | | / __|"
+	echo -e "\t  / ____ \ (_| (_| (_) | |_| | | | | |_  | |__| |  __/ || (_| | | \__ \ "
+	echo -e "\t /_/    \_\___\___\___/ \__,_|_| |_|\__| |_____/ \___|\__\__,_|_|_|___/"
 
-echo -en "\n\nAccount No : "
-echo $(head -1 $1 | tail +1)
+	echo -en "\n\nAccount No : "
+	echo $(head -1 $1 | tail +1)
 
-echo -en "Name : "
-echo $(head -4 $1 | tail +4)
+	echo -en "Name : "
+	echo $(head -4 $1 | tail +4)
 
-echo -en "Address : "
-echo $(head -5 $1 | tail +5)
+	echo -en "Address : "
+	echo $(head -5 $1 | tail +5)
 
-echo -en "Date of Birth (dd/mm/yyyy) : "
-echo $(head -6 $1 | tail +6)
+	echo -en "Date of Birth (dd/mm/yyyy) : "
+	echo $(head -6 $1 | tail +6)
 
-echo -en "Aadhar No : "
-echo $(head -7 $1 | tail +7)
+	echo -en "Aadhar No : "
+	echo $(head -7 $1 | tail +7)
 
-echo -en "Email : "
-echo $(head -8 $1 | tail +8)
+	echo -en "Email : "
+	echo $(head -8 $1 | tail +8)
 
-echo -en "Mobile No : "
-echo $(head -9 $1 | tail +9)
+	echo -en "Mobile No : "
+	echo $(head -9 $1 | tail +9)
 
-echo -en "Bal : "
-echo $(head -1 ./balance/$mon | tail +1 )
-echo -e "\n\nPress Any Key To Continue "
-read ge
+	echo -en "Bal : "
+	echo $(head -1 ./balance/$mon | tail +1 )
+	echo -e "\n\nPress Any Key To Continue "
+	read ge
+
+else
+
+	echo -e "\n\nAccount not Found !!!" 
+	echo -e "Press Any Key To Continue "
+	read ge
+fi
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

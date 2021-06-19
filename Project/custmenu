@@ -1,28 +1,43 @@
 #! /bin/bash
 
-clear
-echo -e "\n\tCustomer Menu\n\n1. Login Account \n2. Account Opening Form \n3. Exit\n"
-echo -n "Enter Your Choice : "
-read choice 
 
-case $choice in
+p=1
+while [ $p -eq 1 ]
+do
+	clear
+	echo -en "\n\t   _____          _                              __  __                  "
+	echo -en "\n\t  / ____|        | |                            |  \/  |                 "
+	echo -en "\n\t | |    _   _ ___| |_ ___  _ __ ___   ___ _ __  | \  / | ___ _ __  _   _ "
+	echo -en "\n\t | |   | | | / __| __/ _ \|  _   _ \ / _ \  __| | |\/| |/ _ \  _ \| | | |"
+	echo -en "\n\t | |___| |_| \__ \ || (_) | | | | | |  __/ |    | |  | |  __/ | | | |_| |"
+	echo -en "\n\t  \_____\__,_|___/\__\___/|_| |_| |_|\___|_|    |_|  |_|\___|_| |_|\__,_|"
+	echo -e "\n\n\n1. Login Account \n2. Account Opening Form \n3. Exit\n"
+	echo -n "Enter Your Choice : "
+	read choice 
 
-1)
-./log 
-;; 
+	case $choice in
 
-2)
-./form
-;;
+		1)
+			./log 
+			;; 
 
-3)
+		2)
+			./form
+			;;
 
-;;
+		3)
+			p=2
+			;;
 
-*)
-echo -en "Oops!! Invalid Input "
-echo -e "\nPress Any Key To Continue "
-read gap
-;;
+		*)
+			echo -en "\n\nOops!! Invalid Input "
+			echo -e "\nPress Any Key To Continue "
+			read gap
+		;;
 
-esac
+	esac
+
+done
+
+
+

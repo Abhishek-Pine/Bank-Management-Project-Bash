@@ -1,5 +1,5 @@
-hey
-how 
-good 
-shfdk
-ge   
+#!/bin/bash
+
+#echo "" >> ./foracc
+
+sed '/$1/d' foracc

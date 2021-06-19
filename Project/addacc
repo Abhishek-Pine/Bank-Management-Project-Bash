@@ -1,7 +1,12 @@
 #! /bin/bash
 
 clear
-
+	echo -en "\n\t              _     _                                     _   "
+	echo -en "\n\t     /\      | |   | |     /\                            | |  "
+	echo -en "\n\t    /  \   __| | __| |    /  \   ___ ___ ___  _   _ _ __ | |_ "
+	echo -en "\n\t   / /\ \ / _  |/ _  |   / /\ \ / __/ __/ _ \| | | |  _ \| __|"
+	echo -en "\n\t  / ____ \ (_| | (_| |  / ____ \ (_| (_| (_) | |_| | | | | |_ "
+	echo -en "\n\t /_/    \_\____|\____| /_/    \_\___\___\___/ \____|_| |_|\__|"
 case $1 in
 Saving)
 bcode=9123
@@ -18,7 +23,7 @@ type='Current'
 
 esac
 
-echo -e "\n\tEnter Details"
+echo -e "\n\n\tEnter Details"
 
 
 echo -en "\nEnter First Name : "
@@ -31,16 +36,46 @@ echo -en "\nEnter Address : "
 read ad
 
 echo -en "\nEnter Date of Birth (dd/mm/yyyy) : "
-read dob
+unset dob
+k=1
+while [[ ! $dob =~ ^(0[1-9]|[1-2][0-9]|3[0-1])[-/.](0[1-9]|1[0-2])[-/.][0-9]{4}$ ]];
+do
+	if [ $k -gt 1 ] ;
+	then
+	echo -en "\nEnter Correct DOB : "
+	fi
+	read dob
+	let "k=k+1"
+done
 
 echo -en "\nEnter Aadhar No : "
-read adh
+unset adh
+k=1
+while [[ ! $adh =~ ^[0-9]{12}$ ]];
+do
+	if [ $k -gt 1 ] ;
+	then
+	echo -en "\nEnter Correct Aadhaar No : "
+	fi
+	read adh
+	let "k=k+1"
+done
 
 echo -en "\nEnter Email : "
 read email
 
 echo -en "\nEnter Mobile No : "
-read ph
+unset ph
+k=1
+while [[ ! $ph =~ ^[1-9][0-9]{9}$ ]];
+do
+	if [ $k -gt 1 ] ;
+	then
+	echo -en "\nEnter Correct Phone No : "
+	fi
+	read ph
+	let "k=k+1"
+done
 
 echo -en "\nEnter Bal : "
 read bal

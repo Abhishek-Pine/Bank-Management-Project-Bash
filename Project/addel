@@ -1,13 +1,26 @@
 #!/bin/bash
 
 clear
-echo -en "\n\tDelete Menu \n\n1. Delete Account \n2. View Deleted Accounts \nEnter your Choice : "
+echo -en "\n\t  _____       _      _         __  __                  "
+echo -en "\n\t |  __ \     | |    | |       |  \/  |                 "
+echo -en "\n\t | |  | | ___| | ___| |_ ___  | \  / | ___ _ __  _   _ "
+echo -en "\n\t | |  | |/ _ \ |/ _ \ __/ _ \ | |\/| |/ _ \  _ \| | | |"
+echo -en "\n\t | |__| |  __/ |  __/ ||  __/ | |  | |  __/ | | | |_| |"
+echo -en "\n\t |_____/ \___|_|\___|\__\___| |_|  |_|\___|_| |_|\__,_|"
+echo -en "\n\n\n1. Delete Account \n2. View Deleted Accounts \nEnter your Choice : "
 read cv 
 
 case $cv in
 1)
+clear
+echo -en "\n\t   _____       _      _                                           _   "
+echo -en "\n\t  |  __ \     | |    | |           /\                            | |  "
+echo -en "\n\t  | |  | | ___| | ___| |_ ___     /  \   ___ ___ ___  _   _ _ __ | |_ "
+echo -en "\n\t  | |  | |/ _ \ |/ _ \ __/ _ \   / /\ \ / __/ __/ _ \| | | |  _ \| __|"
+echo -en "\n\t  | |__| |  __/ |  __/ ||  __/  / ____ \ (_| (_| (_) | |_| | | | | |_ "
+echo -en "\n\t  |_____/ \___|_|\___|\__\___| /_/    \_\___\___\___/ \__,_|_| |_|\__|"
 cd ./accounts
-echo -en "\nEnter Account No : "
+echo -en "\n\n\nEnter Account No : "
 read accno
 
 if [ -f "$accno" ];
@@ -23,15 +36,15 @@ case $type in
 Saving)
 sed '/$accno/p' ./savacc  >> ./savdel
 # sed '/^$/d' ./savdel
-echo "$(sed '/$accno/d' ./savacc )" > ./savacc
-echo "$(sed '/^$/d' ./savacc ) " > ./savacc
+sed -i '/$accno/d' ./savacc 
+sed -i '/^$/d' ./savacc 
 ;;
 
 Current)
 sed '/$accno/p' ./curracc  >> ./currdel
 # sed '/^$/d' ./currdel
-echo "$(sed '/$accno/d' ./curracc )" > ./curracc
-echo "$(sed '/^$/d' ./curracc ) " > ./curracc 
+sed -i '/$accno/d' ./curracc 
+sed -i '/^$/d' ./curracc   
 ;;
 *)
 ;;
@@ -40,7 +53,7 @@ echo -en "\n\nAccount Deleted Sucessfully \n"
 echo -e "\nPress Any Key To Continue "
 read gap
 else
-echo -en "\n\nOops!! Account Not Found \n"
+echo -en "\n\nOops!! Account Not Found "
 echo -e "\nPress Any Key To Continue "
 read gh
 fi
@@ -49,28 +62,75 @@ fi
 
 2)
 clear
-echo -en "\n\tDeleted Account List Menu\n\n1. Savings Account List\n2. Current Account List\n\nEnter your Choice : "
+echo -en "\n\t   _____       _      _           _                                     _   "
+echo -en "\n\t  |  __ \     | |    | |         | |     /\                            | |  "
+echo -en "\n\t  | |  | | ___| | ___| |_ ___  __| |    /  \   ___ ___ ___  _   _ _ __ | |_ "
+echo -en "\n\t  | |  | |/ _ \ |/ _ \ __/ _ \/ _  |   / /\ \ / __/ __/ _ \| | | |  _ \| __|"
+echo -en "\n\t  | |__| |  __/ |  __/ ||  __/ (_| |  / ____ \ (_| (_| (_) | |_| | | | | |_ "
+echo -en "\n\t  |_____/ \___|_|\___|\__\___|\__,_| /_/    \_\___\___\___/ \__,_|_| |_|\__|"
+echo -en "\n\n\n1. Savings Account List\n2. Current Account List\n\nEnter your Choice : "
 read c
 case $c in 
 1)
 clear
-echo -e "\n\tSavings Accounts List\n\nAccount No\tName"
+echo -en "\n\t   _____             _                                                     _         _      _     _   "
+echo -en "\n\t  / ____|           (_)                     /\                            | |       | |    (_)   | |  "
+echo -en "\n\t | (___   __ ___   ___ _ __   __ _ ___     /  \   ___ ___ ___  _   _ _ __ | |_ ___  | |     _ ___| |_ "
+echo -en "\n\t  \___ \ / _  \ \ / / |  _ \ / _  / __|   / /\ \ / __/ __/ _ \| | | |  _ \| __/ __| | |    | / __| __|"
+echo -en "\n\t  ____) | (_| |\ V /| | | | | (_| \__ \  / ____ \ (_| (_| (_) | |_| | | | | |_\__ \ | |____| \__ \ |_ "
+echo -en "\n\t |_____/ \__,_| \_/ |_|_| |_|\__, |___/ /_/    \_\___\___\___/ \__,_|_| |_|\__|___/ |______|_|___/\__|"
+echo -e "\n\n\nAccount No\tName"
 cat ./savdel
-echo -e "\nPress Any Key To Continue "
+echo -e "\n\nPress Any Key To Continue "
 read gap
 ;;
 2)
 clear
-echo -e "\n\tCurrent Accounts List\n\nAccount No\tName"
+echo -en "\n\t   _____                          _                                       _         _      _     _   "
+echo -en "\n\t  / ____|                        | |       /\                            | |       | |    (_)   | |  "
+echo -en "\n\t | |    _   _ _ __ _ __ ___ _ __ | |_     /  \   ___ ___ ___  _   _ _ __ | |_ ___  | |     _ ___| |_ "
+echo -en "\n\t | |   | | | | '__| '__/ _ \ '_ \| __|   / /\ \ / __/ __/ _ \| | | | '_ \| __/ __| | |    | / __| __|"
+echo -en "\n\t | |___| |_| | |  | | |  __/ | | | |_   / ____ \ (_| (_| (_) | |_| | | | | |_\__ \ | |____| \__ \ |_ "
+echo -en "\n\t  \_____\__,_|_|  |_|  \___|_| |_|\__| /_/    \_\___\___\___/ \__,_|_| |_|\__|___/ |______|_|___/\__|"
+echo -e "\n\n\nAccount No\tName"
 cat ./currdel
-echo -e "\nPress Any Key To Continue "
+echo -e "\n\nPress Any Key To Continue "
 read gap
 ;;
 esac
 ;;
 *)
-echo -n "\n\nOops!! Wrong Choice " 
-echo -e "\nPress Any Key To Continue "
+echo -en "\n\nOops!! Wrong Choice " 
+echo -en "\nPress Any Key To Continue "
 read gap
 ;;
 esac
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

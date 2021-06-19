@@ -4,7 +4,13 @@ e=1
 while [ $e -eq 1 ]
 do
 	clear
-	echo -en "\n\t Customer Menu\n\n1. View Details\n2. Transaction \n3. Edit \n4. Logout \n\nEnter Your Choice : "
+	echo -en "\n\t                                    _     __  __                  "
+	echo -en "\n\t     /\                            | |   |  \/  |                 "
+	echo -en "\n\t    /  \   ___ ___ ___  _   _ _ __ | |_  | \  / | ___ _ __  _   _ "
+	echo -en "\n\t   / /\ \ / __/ __/ _ \| | | |  _ \| __| | |\/| |/ _ \  _ \| | | |"
+	echo -en "\n\t  / ____ \ (_| (_| (_) | |_| | | | | |_  | |  | |  __/ | | | |_| |"
+	echo -en "\n\t /_/    \_\___\___\___/ \__,_|_| |_|\__| |_|  |_|\___|_| |_|\__,_|"
+	echo -en "\n\n\n1. View Details\n2. Transaction \n3. Edit \n4. Logout \n\nEnter Your Choice : "
 	read s
 	case $s in
 		1)
@@ -15,8 +21,13 @@ do
 			;;
 		3)
 			clear
-			echo -e "\n\tEdit Menu \n"
-			echo -en "Enter OTP (Which is send to your registered Email ID ) : " 
+			echo -en "\n\t  ______    _ _ _     __  __                  "
+			echo -en "\n\t |  ____|  | (_) |   |  \/  |                 "
+			echo -en "\n\t | |__   __| |_| |_  | \  / | ___ _ __  _   _ "
+			echo -en "\n\t |  __| / _  | | __| | |\/| |/ _ \  _ \| | | |"
+			echo -en "\n\t | |___| (_| | | |_  | |  | |  __/ | | | |_| |"
+			echo -en "\n\t |______\____|_|\__| |_|  |_|\___|_| |_|\____|"
+			echo -en "\n\n\nEnter OTP (Which is send to your registered Email ID ) : " 
 			otp=$RANDOM
 			echo -en "As you requested  for OTP for Edit Menu.\nYour OTP : $otp.\nKindly Do Not Share OTP with anyone.\n\nFor Further Enquires ,Please Visit Branch\nThank-you For Choosing Our Bank\n\n\n*****This Mail is Automatically Generated *****" | mail -s "Edit Menu OTP" $(head -n 8 $1 | tail -n +8 ) 
 			read answer
@@ -26,7 +37,7 @@ do
 			
 			else
 				echo -e "\nWrong OTP!!! Login Again " 
-				echo -e "\nPress Any Key To Continue " 
+				echo -e "Press Any Key To Continue " 
 				read gap
 				e=2
 			fi
@@ -35,9 +46,25 @@ do
 			e=2
 			;;
 		*)
-			echo -e "\nOops!! Invalid Input\n\nPress Any Key To Continue " 
+			echo -e "\nOops!! Invalid Input\nPress Any Key To Continue " 
 			read gap
 			;;
 
 	esac
 done
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

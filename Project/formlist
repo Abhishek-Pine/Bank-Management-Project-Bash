@@ -6,10 +6,17 @@ while [ $j -eq 1 ]
 do
 clear
 
-	echo -e "\n\tNew Account Form List\n\nToken\t\t: Name\n"
+
+	echo -en "\n\t                                    _     ______                     _      _     _   "
+	echo -en "\n\t     /\                            | |   |  ____|                   | |    (_)   | |  "
+	echo -en "\n\t    /  \   ___ ___ ___  _   _ _ __ | |_  | |__ ___  _ __ _ __ ___   | |     _ ___| |_ "
+	echo -en "\n\t   / /\ \ / __/ __/ _ \| | | |  _ \| __| |  __/ _ \|  __|  _   _ \  | |    | / __| __|"
+	echo -en "\n\t  / ____ \ (_| (_| (_) | |_| | | | | |_  | | | (_) | |  | | | | | | | |____| \__ \ |_ "
+	echo -en "\n\t /_/    \_\___\___\___/ \__,_|_| |_|\__| |_|  \___/|_|  |_| |_| |_| |______|_|___/\__|"
+	echo -en "\n\n\nToken\t\t: Name\n"
 	awk 'BEGIN{ FS="|" ; OFS="\t\t:" }{ print $1,$2 }' ./foracc
 
-	echo -en "\n\n1. View Apllication \n2. Exit\nEnter Your Choice : "
+	echo -en "\n\n1. View Application \n2. Exit\nEnter Your Choice : "
 	read h
 	case $h in
 
@@ -21,9 +28,14 @@ clear
 		if [ -f "$tk" ] ;
 		then
 		clear
-		echo -e "\n\tDetails\n"
+		echo -en "\n\t  ______                      _____       _        _ _     "
+		echo -en "\n\t |  ____|                    |  __ \     | |      (_) |    "
+		echo -en "\n\t | |__ ___  _ __  _ __ ___   | |  | | ___| |_ __ _ _| |___ "
+		echo -en "\n\t |  __/ _ \|  __||  _   _ \  | |  | |/ _ \ __/ _  | | / __|"
+		echo -en "\n\t | | | (_) | |   | | | | | | | |__| |  __/ || (_| | | \__ \ "
+		echo -en "\n\t |_|  \___/|_|   |_| |_| |_| |_____/ \___|\__\__,_|_|_|___/"
 
-		echo -en "\n\nToken No : "
+		echo -en "\n\n\nToken No : "
 		echo $tk
 
 		echo -en "Name : "
@@ -59,8 +71,8 @@ clear
 			e=0
 			;;
 			2)
-			echo "$(sed '/$tk /d' ./foracc ) " > ./foracc
-			echo "$(sed '/^$ /d' ./foracc ) " > ./foracc
+			sed -i '/$tk/d' ./foracc 
+			sed -i '/^$ /d' ./foracc 
 			cd ./forms
 			rm $tk	
 			cd ..
@@ -76,20 +88,50 @@ clear
 			;;
 			esac
 		done
+		
 		else
-			echo -e "\nOops!!!! Wrong Token Entered"
-		cd ..
+			echo -en "\nOops!!!! Wrong Token Entered"
+			cd ..
 		fi
+		echo -e "\nPress Any Key To Continue "
+		read gap
 		;;
 
 		2)
 		j=0
 		;;
 		*)
+			echo -en "\nOops!!!! Wrong Input"
+			echo -e "\nPress Any Key To Continue "
+			read gap
 		;;
 		esac
-	echo -e "\nPress Any Key To Continue "
-	read gap
+	
 
 done
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

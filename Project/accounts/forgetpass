@@ -1,13 +1,24 @@
 #! /bin/bash 
 
 clear
+echo -en "\n\t  ______                   _     _____                                    _ "
+echo -en "\n\t |  ____|                 | |   |  __ \                                  | |"
+echo -en "\n\t | |__ ___  _ __ __ _  ___| |_  | |__) |_ _ ___ _____      _____  _ __ __| |"
+echo -en "\n\t |  __/ _ \|  __/ _  |/ _ \ __| |  ___/ _  / __/ __\ \ /\ / / _ \|  __/ _  |"
+echo -en "\n\t | | | (_) | | | (_| |  __/ |_  | |  | (_| \__ \__ \\ V  V / (_) | | | (_| |"
+echo -en "\n\t |_|  \___/|_|  \__, |\___|\__| |_|   \____|___/___/ \_/\_/ \___/|_|  \____|"
+echo -en "\n\t                 __/ |                                                      "
+echo -en "\n\t                |___/                                                      "
 if [ -f "$1" ];
 then
-	echo -en "You have requested for password\nYour Password : $(head -n 3 $1 | tail -n +3 )\n\nFor Further Enquires ,Please Visit Branch\nThank-you For Choosing Our Bank\n\n\n*****This Mail is Automatically Generated *****" | mail -s "Password Requested" $(head -n 8 $1 | tail -n +8 ) | echo -e "\nPassword has been send to your registered email ID\nThank-you"
-	echo -en "\n\nPress Any Key To Continue "
+
+	echo -en "You have requested for password\nYour Password : $(head -n 3 $1 | tail -n +3 )\n\nFor Further Enquires ,Please Visit Branch\nThank-you For Choosing Our Bank\n\n\n*****This Mail is Automatically Generated *****" | mail -s "Password Requested" $(head -n 8 $1 | tail -n +8 ) | echo -e "\n\n\nPassword has been send to your registered email ID\nThank-you\n\nWait for 1 min "
+	echo -en "\nPress Any Key To Continue "
 	read gap 
 else
-	echo -e "\nOops!! Account Not Found\n\nPress Any Key To Continue "
+	echo -e "\n\n\nOops!! Account Not Found\n\nPress Any Key To Continue "
 	read gap
 fi 
  
+
+

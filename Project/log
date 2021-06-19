@@ -2,7 +2,16 @@
 
 clear
 cd ./accounts
-echo -en "\n\tLogin\n\nEnter Your Account No : "
+
+echo -en "\n\t  _                 _       "
+echo -en "\n\t | |               (_)      "
+echo -en "\n\t | |     ___   __ _ _ _ __  "
+echo -en "\n\t | |    / _ \ / _  | |  _ \ "
+echo -en "\n\t | |___| (_) | (_| | | | | |"
+echo -en "\n\t |______\___/ \__, |_|_| |_|"
+echo -en "\n\t               __/ |        "
+echo -en "\n\t              |___/         "
+echo -en "\n\n\nEnter Your Account No : "
 read acc
 
 if [ -f "$acc" ] ;
@@ -11,10 +20,23 @@ then
 
 	while [ $j -eq 1 ]
 	do
+		
+		w=1
+		while [ $w -eq 1 ]
+		do
 		clear
-		echo -en "\nAccount No : $acc \n\n1. Password \n2. Forgot Password \n3. Exit \nEnter Your Choice : "
+		echo -en "\n\t  _                 _       "
+		echo -en "\n\t | |               (_)      "
+		echo -en "\n\t | |     ___   __ _ _ _ __  "
+		echo -en "\n\t | |    / _ \ / _  | |  _ \ "
+		echo -en "\n\t | |___| (_) | (_| | | | | |"
+		echo -en "\n\t |______\___/ \__, |_|_| |_|"
+		echo -en "\n\t               __/ |        "
+		echo -en "\n\t              |___/         "
+		echo -en "\n\n\nAccount No : $acc \n\n1. Password \n2. Forgot Password \n3. Exit \nEnter Your Choice : "
 		read ch
-
+			
+			
 			case $ch in
 				1)
 					echo -en "\nEnter Your Password : "
@@ -25,29 +47,35 @@ then
 					then
 						./logmenu $acc
 						j=0
+						w=0
 					else
 						echo -e "\n\nWrong Password !!!!!! \n\nPress Any Key To Continue "
 						j=0;
 						read gg
 					fi
-					;;
+				;;
 				2)
 					./forgetpass $acc
 					j=0
-					;;
+				;;
 				3)
 					j=0
+					w=0
 					;;
 				*)
-					echo -en "\nOops!!! Wrong Input \n\nPress Any Key To Continue "
+					echo -en "\n\nOops!!! Wrong Input \nPress Any Key To Continue "
 					read gap
 					;;
-			esac
-
+				esac
+		done
 	done
 
 else
-	echo -en "\n\nAccount Not Found !!!\n\nPress Any Key To Continue "
+	echo -en "\n\nAccount Not Found !!!\nPress Any Key To Continue "
 	read gap
 fi
 cd ..
+
+
+
+

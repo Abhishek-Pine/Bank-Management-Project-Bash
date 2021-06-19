@@ -1,7 +1,14 @@
 #! /bin/bash
 
 clear
-echo -en "\n\tEdit Menu \n\n1. Password \n2. Name \n3. Address \n4. DOB \n5. Aadhar \n6. Email \n7. Phone No \n8. Exit \nEnter Your Choice : "  
+
+echo -en "\n\t  ______    _ _ _     __  __                  "
+echo -en "\n\t |  ____|  | (_) |   |  \/  |                 "
+echo -en "\n\t | |__   __| |_| |_  | \  / | ___ _ __  _   _ "
+echo -en "\n\t |  __| / _  | | __| | |\/| |/ _ \  _ \| | | |"
+echo -en "\n\t | |___| (_| | | |_  | |  | |  __/ | | | |_| |"
+echo -en "\n\t |______\____|_|\__| |_|  |_|\___|_| |_|\____|"
+echo -en "\n\n\n1. Password \n2. Name \n3. Address \n4. DOB \n5. Aadhar \n6. Email \n7. Phone No \n8. Exit \nEnter Your Choice : "  
 read cq
 case $cq in
 
@@ -16,7 +23,7 @@ case $cq in
 		echo "$pas" >> temp
 		echo "$(tail +$r $1)" >> temp
 		echo -e "\n\nDetails Updated "
-		echo -e "\n\nPress Any Key To Continue "
+		echo -e "Press Any Key To Continue "
 		read ge
 		;;
 	2)
@@ -30,7 +37,7 @@ case $cq in
 		echo "$ad" >> temp
 		echo "$(tail +$r $1)" >> temp
 		echo -e "\n\nDetails Updated "
-		echo -e "\n\nPress Any Key To Continue "
+		echo -e "Press Any Key To Continue "
 		read ge
 		;;
 
@@ -45,7 +52,7 @@ case $cq in
 		echo "$ad" >> temp
 		echo "$(tail +$r $1)" >> temp
 		echo -e "\n\nDetails Updated "
-		echo -e "\n\nPress Any Key To Continue "
+		echo -e "Press Any Key To Continue "
 		read ge
 		;;
 
@@ -56,11 +63,21 @@ case $cq in
 		let "r=r+2"
 		clear
 		echo -en "\nEnter New DOB : " 
-		read dob
+		unset dob
+			k=1
+			while [[ ! $dob =~ ^(0[1-9]|[1-2][0-9]|3[0-1])[-/.](0[1-9]|1[0-2])[-/.][0-9]{4}$ ]];
+			do
+				if [ $k -gt 1 ] ;
+				then
+				echo -en "\nEnter Correct DOB : "
+				fi
+				read dob
+				let "k=k+1"
+			done
 		echo "$dob" >> temp
 		echo "$(tail +$r $1)" >> temp
 		echo -e "\n\nDetails Updated "
-		echo -e "\n\nPress Any Key To Continue "
+		echo -e "Press Any Key To Continue "
 		read ge
 		;;
 
@@ -71,11 +88,21 @@ case $cq in
 		let "r=r+2"
 		clear
 		echo -en "\nEnter New Aadhar : " 
-		read adh
+		unset adh
+		k=1
+		while [[ ! $adh =~ ^[0-9]{12}$ ]];
+		do
+			if [ $k -gt 1 ] ;
+			then
+				echo -en "\nEnter Correct Aadhaar No : "
+			fi
+			read adh
+			let "k=k+1"
+		done
 		echo "$adh" >> temp
 		echo "$(tail +$r $1)" >> temp
 		echo -e "\n\nDetails Updated "
-		echo -e "\n\nPress Any Key To Continue "
+		echo -e "Press Any Key To Continue "
 		read ge
 	;;
 
@@ -90,7 +117,7 @@ case $cq in
 		echo "$email" >> temp
 		echo "$(tail +$r $1)" >> temp
 		echo -e "\n\nDetails Updated "
-		echo -e "\n\nPress Any Key To Continue "
+		echo -e "Press Any Key To Continue "
 		read ge
 	;;
 
@@ -101,19 +128,30 @@ case $cq in
 		let "r=r+2"
 		clear
 		echo -en "\nEnter New Phone No : " 
-		read ph
+		unset ph
+		k=1
+		while [[ ! $ph =~ ^[1-9][0-9]{9}$ ]];
+		do
+			if [ $k -gt 1 ] ;
+			then
+			echo -en "\nEnter Correct Phone No : "
+			fi
+			read ph
+			let "k=k+1"
+		done
 		echo "$ph" >> temp
 		echo "$(tail +$r $1)" >> temp
 		echo -e "\n\nDetails Updated "
-		echo -e "\n\nPress Any Key To Continue "
+		echo -e "Press Any Key To Continue "
 		read ge
 	;;
 
 	8)
+	r=0
 	;;
 
 	*)
-		echo -e "\nOops!! Invalid Input\n\nPress Any Key To Continue " 
+		echo -e "\nOops!! Invalid Input\nPress Any Key To Continue " 
 		read gap
 	;;
 
@@ -124,4 +162,5 @@ then
 	rm -r $1
 	mv temp $1
 fi
+
 

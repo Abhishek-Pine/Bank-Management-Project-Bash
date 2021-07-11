@@ -71,12 +71,12 @@ case $typ in
 esac
 
 
-echo -e "\nAccount No : $accno \n\nWait For 1 minute"
+echo -e "\nAccount No : $accno "
 echo -e "Congratulations $name , Your Account has been Opened Sucessfully \n\nAccouunt No : $accno\nDOB : $dob\nEmail : $email\nPhone No : $ph\nBalance : $bal \nPassword : $pas\n\nFor Further Enquires ,Please Visit Branch\nThank-you For Choosing Our Bank\n\n\n*****This Mail is Automatically Generated *****" | mail -s "Bank Account Opened Sucessfully" $email
 echo -e "\n\nAccount has been Opened Sucessfully"
 
-sed '/$1 /d' ./foracc 
-sed '/^$ /d' ./foracc 
+sed -i "/$1/d" ./foracc 
+sed "/^$ /d" ./foracc 
 rm ./forms/$1
 
 

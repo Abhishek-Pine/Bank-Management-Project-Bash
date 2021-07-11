@@ -71,8 +71,8 @@ clear
 			e=0
 			;;
 			2)
-			sed -i '/$tk/d' ./foracc 
-			sed -i '/^$ /d' ./foracc 
+			sed -i "/$tk/d" ./foracc 
+			sed -i "/^$ /d" ./foracc 
 			cd ./forms
 			rm $tk	
 			cd ..
